@@ -64,26 +64,33 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about {
-  text-align: center;
-  .photo {
-    width: 250px;
-    height: 250px;
-    margin: 40px auto 20px;
-    padding: 30px;
-    border: 10px solid $gray-300;
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: $gray-200;
-    position: relative;
-    img {
-      width: 100%;
+  .about {
+    text-align: center;
+    .photo {
+      width: 250px;
+      height: 250px;
+      margin: 40px auto 20px;
+      padding: 30px;
+      border: 10px solid pink;
+      border-radius: 50%;
+      box-sizing: border-box;
+      background-color: $gray-200;
+      overflow: hidden;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 20%;
+      }
+    }
+    .name {
+      font-size: 40px;
+      font-display: "Oswald", sans-serif;
+      margin-bottom: 20px;
     }
   }
-  .name {
-    font-size: 40px;
-    font-family: "Oswald", sans-serif;
-    margin-bottom: 20px;
-  }
-}
 </style>

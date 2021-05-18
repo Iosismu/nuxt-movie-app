@@ -20,7 +20,7 @@
       class="user"
       @click="toAbout">
       <img
-        :src="image"
+        :src="image2"
         :alt="name" />
     </div>
   </header>
@@ -56,6 +56,7 @@ export default {
   computed: {
     ...mapState('about', [
       'image',
+      'image2',
       'name'
     ])
   },
@@ -72,40 +73,42 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-header {
-  height: 70px;
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-  position: relative;
-  .logo {
-    margin-right: 40px;
-  }
-  .user {
-    width: 40px;
-    height: 40px;
-    padding: 6px;
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: $gray-200;
-    cursor: pointer;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 40px;
-    margin: auto;
-    transition: .4s;
-    &:hover {
-      background-color: darken($gray-200, 10%);
+  header {
+    height: 70px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    .logo {
+      margin-right: 40px;
     }
-    img {
-      width: 100%;
+    .user {
+      width: 40px;
+      height: 40px;
+      padding: 6px;
+      border-radius: 50%;
+      box-sizing: border-box; // padding이 추가된 만큼 요소가 커지지 않게
+      background-color: pink;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 40px;
+      margin: auto;
+      transition: .4s;
+      overflow: hidden;
+      &:hover {
+        background-color: darken(pink, 10%);
+      }
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+    @include media-breakpoint-down(sm) { // 보고있는 Viewport(웹사이트)의 크기가 sm보다 작을 경우 안에 선택자 실행
+      .nav {
+        display: none;
+      }
     }
   }
-  @include media-breakpoint-down(sm) {
-    .nav {
-      display: none;
-    }
-  }
-}
 </style>
